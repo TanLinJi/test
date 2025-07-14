@@ -1,0 +1,33 @@
+一级分割参数：
+
+mask_generator = SAM2AutomaticMaskGenerator(
+    model=sam2,
+    points_per_side=8,  # 不动
+    points_per_batch=128,
+    pred_iou_thresh=0.50,
+    stability_score_thresh=0.65,
+    stability_score_offset=0.65,
+    crop_n_layers=1,  # 不动
+    box_nms_thresh=0.6,
+    crop_n_points_downscale_factor=0.6, # -
+    min_mask_region_area=36.0, # 不动
+    use_m2m=True,
+)
+
+二级分割参数：
+mask_generator_secondary = SAM2AutomaticMaskGenerator(
+    model=sam2,
+    points_per_side=6,
+    points_per_batch=128,
+    pred_iou_thresh=0.50,
+    stability_score_thresh=0.65,
+    stability_score_offset=0.65,
+    crop_n_layers=1,
+    box_nms_thresh=0.6,
+    crop_n_points_downscale_factor=0.6,
+    min_mask_region_area=60.0,
+    use_m2m=True,
+)
+
+
+test_0625.ipynb文件，完成了对一级分割的函数封装，2025.06.25  17:08
